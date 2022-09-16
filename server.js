@@ -3,8 +3,7 @@ import { APP_PORT, DB_URL } from "./config";
 import errorHandler from "./middlewares/errorHandler";
 const app = express();
 import routes from "./routes";
-import mongoose from 'mongoose';
-
+import mongoose from "mongoose";
 
 // Database connection
 mongoose.connect(DB_URL, {
@@ -13,11 +12,10 @@ mongoose.connect(DB_URL, {
   //useFindAndModify: false,
 });
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('DB connected...');
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+  console.log("DB connected...");
 });
-
 
 app.use(express.json());
 
